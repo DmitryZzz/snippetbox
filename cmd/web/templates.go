@@ -5,11 +5,14 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/dmitryzzz/snippetbox/pkg/forms"
 	"github.com/dmitryzzz/snippetbox/pkg/models"
 )
 
 type templateData struct {
 	CurrentYear int
+	Flash       string
+	Form        *forms.Form
 	Snippet     *models.Snippet
 	Snippets    []*models.Snippet
 }
@@ -18,7 +21,7 @@ func humanDate(t time.Time) string {
 	return t.Format("02 Jan 2006 at 15:04")
 }
 
-var functions = template.FuncMap {
+var functions = template.FuncMap{
 	"humanDate": humanDate,
 }
 
